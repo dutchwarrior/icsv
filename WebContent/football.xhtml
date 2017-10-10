@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+	<title>First step</title>
+</h:head>
+<h:body>
+	<h:outputText value="First step"></h:outputText>
+	<br />
+	<br />
+	<h:form id="form" enctype="multipart/form-data">
+
+		<br />
+
+		<h:inputFile id="file" value="#{conversationBean.file}"  validator="#{conversationBean.validateFile}"/>
+		<h:commandButton value="Upload" action="#{conversationBean.upload}">
+		</h:commandButton>
+		<br/> 
+
+	</h:form>
+	
+	<h:form id="form1" >
+		<h:commandButton value="Find Result" action="#{conversationBean.findResult}">
+		</h:commandButton>
+		<br/>
+		Result: <h:outputText value="#{conversationBean.fileContent}"></h:outputText>
+	</h:form>
+</h:body>
+</html>
