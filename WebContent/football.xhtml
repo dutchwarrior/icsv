@@ -4,8 +4,12 @@
 	xmlns:f="http://java.sun.com/jsf/core">
 <h:head>
 	<title>First step</title>
+	
+	<h:outputStylesheet library="bootstrap" name="dist/css/bootstrap.css"  />
+	<h:outputStylesheet library="bootstrap" name="dist/css/bootstrap-theme.css"  />
 </h:head>
 <h:body>
+
 	<h:outputText value="First step"></h:outputText>
 	<br />
 	<br />
@@ -14,8 +18,7 @@
 		<br />
 
 		<h:inputFile id="file" value="#{conversationBean.file}"  validator="#{conversationBean.validateFile}"/>
-		<h:commandButton value="Upload" action="#{conversationBean.upload}">
-		</h:commandButton>
+		<h:commandButton value="Upload" action="#{conversationBean.upload}"/>
 		<br/> 
 
 	</h:form>
@@ -26,5 +29,7 @@
 		<br/>
 		Result: <h:outputText value="#{conversationBean.fileContent}"></h:outputText>
 	</h:form>
+	<h:outputScript library="jquery" name="dist/jquery.js" />
+	<h:outputScript library="bootstrap" name="dist/js/bootstrap.js" />
 </h:body>
 </html>

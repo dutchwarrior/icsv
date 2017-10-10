@@ -69,7 +69,7 @@ public class ConversationBean implements Serializable {
 			msgs.add(new FacesMessage("select file"));
 		} else {
 
-			if (!"text/plain".equals(file.getContentType())) {
+			if (!"text/plain".equals(file.getContentType()) && !"application/octet-stream".equals(file.getContentType())) {
 				msgs.add(new FacesMessage("not a text file"));
 			}
 		}

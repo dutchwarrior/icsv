@@ -1,9 +1,5 @@
 package com.eisc.football;
 
-import java.util.Collection;
-import java.util.Comparator;
-import java.util.Iterator;
-
 public class Util {
 
 	public static boolean isNumeric(final CharSequence cs) {
