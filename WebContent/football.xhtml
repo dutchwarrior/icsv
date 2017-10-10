@@ -1,35 +1,62 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:f="http://java.sun.com/jsf/core">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:c="http://java.sun.com/jsp/jstl/core" xmlns:f="http://java.sun.com/jsf/core">
 <h:head>
-	<title>First step</title>
-	
-	<h:outputStylesheet library="bootstrap" name="dist/css/bootstrap.css"  />
-	<h:outputStylesheet library="bootstrap" name="dist/css/bootstrap-theme.css"  />
+	<title>FootBall</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<meta http-equiv="X-UA-Conpatible" content="IE=edge" />
+	<h:outputStylesheet library="bootstrap" name="dist/css/bootstrap.css" />
+	<h:outputStylesheet library="bootstrap" name="dist/css/bootstrap-grid.css" />
+	<h:outputStylesheet library="bootstrap" name="dist/css/bootstrap-reboot.css" />
 </h:head>
 <h:body>
+	<br/>
+	<div class="container-fluid">
+		<h:form id="form" enctype="multipart/form-data" styleClass="form-inline">
+			<div class="form-group">
+				<div class="input-group mr-sm-4">
+					<h:outputLabel styleClass="custom-file">
+						<h:inputFile id="file" value="#{conversationBean.file}" styleClass="custom-file-input">
+							<f:validator validatorId="com.eisc.football.FileValidator" />
+						</h:inputFile>
+						<span class="custom-file-control"></span>
+					</h:outputLabel>
+				</div>
 
-	<h:outputText value="First step"></h:outputText>
-	<br />
-	<br />
-	<h:form id="form" enctype="multipart/form-data">
+			</div>
+			<div class="form-group">
+				<h:commandButton value="Upload" action="#{conversationBean.upload}" styleClass="mr-sm-4 btn btn-primary"></h:commandButton>
+				
+				<h:message for="file" styleClass="alert alert-warning" />
+			</div>
+		</h:form>
+	</div>
+	<br/>
+	<div class="container-fluid">
 
-		<br />
+		<h:form id="form1">
+			<div class="row">
+				<div class="col-md-12">
+					<h:commandButton value="Find Result" action="#{conversationBean.findResult}" styleClass="btn btn-primary">
+					</h:commandButton>
+				</div>
+			</div>
+			<br/>
+			<div class="row">
+				<div class="col-md-6">
+					<h:outputLabel styleClass="custom-file" value="Team with the slightest difference between goals scored and suffered:"></h:outputLabel>
+				</div>
+				<div class="col-md-6">
+					<h:outputText value="#{conversationBean.fileContent}"></h:outputText>
+				</div>
+			</div>
+		</h:form>
+	</div>
 
-		<h:inputFile id="file" value="#{conversationBean.file}"  validator="#{conversationBean.validateFile}"/>
-		<h:commandButton value="Upload" action="#{conversationBean.upload}"/>
-		<br/> 
-
-	</h:form>
-	
-	<h:form id="form1" >
-		<h:commandButton value="Find Result" action="#{conversationBean.findResult}">
-		</h:commandButton>
-		<br/>
-		Result: <h:outputText value="#{conversationBean.fileContent}"></h:outputText>
-	</h:form>
 	<h:outputScript library="jquery" name="dist/jquery.js" />
-	<h:outputScript library="bootstrap" name="dist/js/bootstrap.js" />
+	<h:outputScript library="bootstrap" name="js/dist/button.js" />
+	<h:outputScript library="bootstrap" name="js/dist/carousel.js" />
+	<h:outputScript library="bootstrap" name="js/dist/tab.js" />
+	<h:outputScript library="custom" name="football.js" />
 </h:body>
 </html>

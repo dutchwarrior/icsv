@@ -12,10 +12,6 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import javax.enterprise.context.SessionScoped;
-import javax.faces.application.FacesMessage;
-import javax.faces.component.UIComponent;
-import javax.faces.context.FacesContext;
-import javax.faces.validator.ValidatorException;
 import javax.inject.Named;
 import javax.servlet.http.Part;
 
@@ -59,23 +55,6 @@ public class ConversationBean implements Serializable {
 
 	public void setFile(Part file) {
 		this.file = file;
-	}
-
-	public void validateFile(FacesContext ctx, UIComponent comp, Object value) {
-		List<FacesMessage> msgs = new ArrayList<FacesMessage>();
-		Part file = (Part) value;
-
-		if (file == null) {
-			msgs.add(new FacesMessage("select file"));
-		} else {
-
-			if (!"text/plain".equals(file.getContentType()) && !"application/octet-stream".equals(file.getContentType())) {
-				msgs.add(new FacesMessage("not a text file"));
-			}
-		}
-		if (!msgs.isEmpty()) {
-			throw new ValidatorException(msgs);
-		}
 	}
 
 	public void findResult() {
@@ -125,4 +104,5 @@ public class ConversationBean implements Serializable {
 	public void setFileContent(String fileContent) {
 		this.fileContent = fileContent;
 	}
+
 }
