@@ -5,6 +5,7 @@
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 	<meta http-equiv="X-UA-Conpatible" content="IE=edge" />
+	<meta http-equiv="content-language" content="en"/>
 	<h:outputStylesheet library="bootstrap" name="dist/css/bootstrap.css" />
 	<h:outputStylesheet library="bootstrap" name="dist/css/bootstrap-grid.css" />
 	<h:outputStylesheet library="bootstrap" name="dist/css/bootstrap-reboot.css" />
@@ -19,14 +20,13 @@
 						<h:inputFile id="file" value="#{conversationBean.file}" styleClass="custom-file-input">
 							<f:validator validatorId="com.eisc.football.FileValidator" />
 						</h:inputFile>
-						<span class="custom-file-control"></span>
+						<span class="custom-file-control form-control-danger"></span>
 					</h:outputLabel>
 				</div>
 
 			</div>
 			<div class="form-group">
 				<h:commandButton value="Upload" action="#{conversationBean.upload}" styleClass="mr-sm-4 btn btn-primary"></h:commandButton>
-				
 				<h:message for="file" styleClass="alert alert-warning" />
 			</div>
 		</h:form>
@@ -37,8 +37,7 @@
 		<h:form id="form1">
 			<div class="row">
 				<div class="col-md-12">
-					<h:commandButton value="Find Result" action="#{conversationBean.findResult}" styleClass="btn btn-primary">
-					</h:commandButton>
+					<h:commandButton value="Find Result" action="#{conversationBean.findResult}" styleClass="btn btn-primary"/>
 				</div>
 			</div>
 			<br/>
