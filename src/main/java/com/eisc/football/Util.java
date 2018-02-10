@@ -19,6 +19,8 @@ public class Util {
 		return cs == null || cs.length() == 0;
 	}
 
-	
+	public String getNumber() {
+		return "1";
+	}
 	
 }
